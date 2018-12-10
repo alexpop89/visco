@@ -1,0 +1,25 @@
+{
+  "name": "visco",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexpop89/visco.git"
+  },
+  "author": "Alex Pop",
+  "license": "MIT",
+  "bin": {
+    "visco-init": "init-cli/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/alexpop89/visco/issues"
+  },
+  "homepage": "https://github.com/alexpop89/visco#readme",
+  "dependencies": {
+    "jsonfile": "^5.0.0"
+  }
+}
