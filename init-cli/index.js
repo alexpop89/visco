@@ -1,22 +1,28 @@
 #!/usr/bin/env node
+const path = require('path');
 const intro = require('./intro');
-const waitForUserInput = require('./wait-for-user-input');
-const setup = require('./setup');
+const user_input = require('./utils/user-input');
+const setup = require('./setup/index');
 
 // grab provided arguments
-const [,, ...args] = process.argv;
-let path = args[0];
+const [ , , ...args ] = process.argv;
+const pwd = process.env.PWD;
+let directory, path_argument;
 
-intro(path);
+try {
+    path_argument = path.normalize(args[ 0 ]);
+} catch (ignore) {}
 
-if (!path) {
-    waitForUserInput('Please specify a path where to setup Visco: ').then(input => {
-        path = input;
-        intro(path);
-        setup(path);
-    })
-} else {
-    setup(path);
+try {
+    directory = path.join(pwd, path_argument);
+    intro(directory);
+    setup(directory);
+} catch (ignore) {
+    user_input('Please specify a path where to setup Visco: ').then(input => {
+        directory = path.join(pwd, input);
+        intro(directory);
+        setup(directory);
+    });
 }
 
 

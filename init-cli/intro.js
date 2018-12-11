@@ -9,5 +9,5 @@ module.exports = function(path) {
          \\___/ \\___/\\____/ \\____/\\___/
     `);
 
-    console.log(`Setting up Visco ${path ? 'in ' + __dirname + path : '...'}`);
+    console.log(`Setting up Visco ${path ? 'in ' + path : '...'}`);
 };
